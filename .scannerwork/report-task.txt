@@ -1,0 +1,6 @@
+projectKey=com.jlbejarano:quileia
+serverUrl=http://localhost:9000
+serverVersion=9.3.0.51899
+dashboardUrl=http://localhost:9000/dashboard?id=com.jlbejarano%3Aquileia
+ceTaskId=AX7ZxOE-vB9iWpFTJMan
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX7ZxOE-vB9iWpFTJMan

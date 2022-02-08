@@ -13,10 +13,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class CityServiceImpl implements CityService {
 
-    @Autowired
-    CityRepository cityRepository;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(CityServiceImpl.class);
+    
+    private final CityRepository cityRepository;
+
+    @Autowired
+    public CityServiceImpl(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
+    }
 
     @Override
     public List<City> findAll() {

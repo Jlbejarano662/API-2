@@ -15,6 +15,6 @@ public interface BookingRepository extends  JpaRepository<Booking, Long> {
     List<Booking> findByIdCity(Long idCity);
 
     @Query("SELECT count(*) FROM Booking b WHERE b.idCity = :idCity AND b.date = :date AND b.id != :id")
-    int count(@Param("idCity")Long idCity, @Param("date")String Fecha, @Param("id")Long id);
+    int count(@Param("idCity")Long idCity, @Param("date")String date, @Param("id")Long id);
     
 }

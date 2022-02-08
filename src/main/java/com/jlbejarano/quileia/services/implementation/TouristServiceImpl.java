@@ -13,11 +13,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TouristServiceImpl implements TouristService {
-    
-    @Autowired
-    TouristRepository touristRepository;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TouristServiceImpl.class);
+    
+    private final TouristRepository touristRepository;
+
+    @Autowired
+    public TouristServiceImpl(TouristRepository touristRepository) {
+        this.touristRepository = touristRepository;
+    }
 
     @Override
     public List<Tourist> findAll() {

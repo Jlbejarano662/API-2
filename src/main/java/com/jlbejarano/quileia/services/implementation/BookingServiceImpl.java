@@ -12,10 +12,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookingServiceImpl implements BookingService {
 
-    @Autowired
-    BookingRepository bookingRepository;
+    private static final int COUNT = 5;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BookingServiceImpl.class);
+
+    private final BookingRepository bookingRepository;
+    
+    @Autowired
+    public BookingServiceImpl(BookingRepository bookingRepository) {
+        this.bookingRepository = bookingRepository;
+    }
     
     @Override
     public List<Booking> findAll() {
@@ -33,16 +39,14 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public int count(Long idCity, String date, Long id) {
+    public int count(Long idCity, String date, Long id ) {
         return bookingRepository.count(idCity, date, id);
     }
 
     @Override
     public Booking save(Booking booking) {
-        long id = (long) 0;
-        int count = count(booking.getIdCity(), booking.getDate(), id);
-        //System.out.println(count);
-        if (count <5) {
+        int count = count(booking.getIdCity(), booking.getDate(), (long) 0);
+        if (count <COUNT) {
             return bookingRepository.save(booking);
         }
         return null;
@@ -51,8 +55,7 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public Booking update(Booking booking) {
         int count = count(booking.getIdCity(), booking.getDate(), booking.getId());
-        //System.out.println(count);
-        if (count <5) {
+        if (count <COUNT) {
             return bookingRepository.save(booking);
         }
         return null;

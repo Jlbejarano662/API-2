@@ -8,6 +8,9 @@ class QuileiaApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+		// Do nothing
+
 	}
 
 }
